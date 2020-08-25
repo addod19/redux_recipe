@@ -1,5 +1,6 @@
 import axios from 'axios';
 import categories from './allCategories';
+import { CHANGE_FILTER, GET_RECIPES, GET_RECIPE, CHANGE_CATEGORIES } from '../../constants/actionTypes';
 
 const getRecipes = () => dispatch => {
   const categoriesResult = [];
@@ -9,15 +10,17 @@ const getRecipes = () => dispatch => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
       .then(res => {
+        console.log(res);
         categoriesResult.push(...res.data.meals);
-        // console.log(categoriesResult[0]);
+        console.log(res);
       })
       .then(() => {
         dispatch({
-          type: 'GET_RECIPES',
+          type: GET_RECIPES,
           payload: categoriesResult,
         });
-      });
+      })
+      .then(error => error);
   });
 };
 
@@ -25,9 +28,10 @@ const getRecipe = id => dispatch => {
   axios
     .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(response => dispatch({
-      type: 'GET_RECIPE',
+      type: GET_RECIPE,
       payload: response.data.meals[0],
-    }));
+    }))
+    .then(error => error);
 };
 
 
@@ -36,12 +40,17 @@ const changeCategories = category => async dispatch => {
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
   );
   dispatch({
-    type: 'FILTER BY CATEGORY',
+    type: CHANGE_CATEGORIES,
     payload: data,
   });
 };
 
+const changeFIlter = filter => ({
+  type: CHANGE_FILTER,
+  filter,
+});
+
 
 export {
-  getRecipes, getRecipe, changeCategories,
+  getRecipes, getRecipe, changeCategories, changeFIlter
 };

@@ -7,12 +7,10 @@ import CategoryFilter from '../components/CategoryFilter';
 import { Link } from 'react-router-dom';
 
 import { FilterWrap, RecipeWrap }  from '../styles/RecipeListStyle';
-// import RecipeWrap from '../styles/RecipeListStyle';
-import { GET_RECIPES } from '../constants/actionTypes';
 
 
 const RecipeList = ({
-    getRecipes, recipes, changeCategories,
+    getRecipes, recipes, changeCategories, filter
 }) => {
     useEffect(() => {
         getRecipes();
@@ -46,6 +44,7 @@ RecipeList.propTypes = {
 
 const mapStateToProps = state => ({
     recipes: state.recipe.recipes,
+    filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({

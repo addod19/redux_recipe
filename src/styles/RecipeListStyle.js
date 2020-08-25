@@ -6,6 +6,8 @@ const FilterWrap = styled.div `
 `
 
 const RecipeWrap = styled.div `
-  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 20px
 `
 export { FilterWrap, RecipeWrap };

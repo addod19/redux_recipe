@@ -11,15 +11,15 @@ const Recipe = ({
 }) => {
   useEffect(() => {
       getRecipe();
-  }, [loading]);
+  }, [getRecipe, loading]);
 
   return recipe && loading === null ? <h1>loading....</h1> : (
     <div className="row">
-      <div className="col-md-6">
-        <h3>{ recipe.strMeal }</h3>
+      <div className="col-sm-12 col-md-6 col-lg-4">
+        <h3>{ recipe }</h3>
         <img src={recipe.strMealThumb} alt="" />
       </div>
-      <div className="col-md-6">
+      <div className="col-sm-12 col-md-6 col-lg-4">
         <h2>Ingredients</h2>
         <ul className="ingredients">
           <li>
@@ -66,8 +66,8 @@ Recipe.propTypes = {
 };
 
 const mapStateToProp = state => ({
-  recipe: state.recipes.recipe,
-  loading: state.recipes.loading,
+  recipe: state.recipes,
+  loading: state.recipes,
 });
 
 export default connect(mapStateToProp, { getRecipe })(Recipe);
