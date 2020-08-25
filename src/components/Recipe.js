@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Recipe = ({ recipe}) => (
     <div className="main">
       <Link to={`/${recipe.id}`}>
-        <img src={`https://www.themealdb.com/images/ingredients/Lime.png`} className="recipeImg" alt="img" />
+        <img src={recipe.strMealThumb} className="recipeImg" alt="img" />
         <p>
           ##
           {recipe.id}

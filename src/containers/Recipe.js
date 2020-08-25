@@ -7,17 +7,16 @@ import { getRecipe } from '../redux/actions';
 
 
 const Recipe = ({
-  recipe: { recipe, loading }, getRecipe, match
+  recipe, getRecipe, loading
 }) => {
   useEffect(() => {
-    const id = match.params;
-      getRecipe(id);
+      getRecipe();
   }, [loading]);
 
   return recipe && loading === null ? <h1>loading....</h1> : (
     <div className="row">
       <div className="col-md-6">
-        <h3>Recipe</h3>
+        <h3>{ recipe.strMeal }</h3>
         <img src={recipe.strMealThumb} alt="" />
       </div>
       <div className="col-md-6">
@@ -61,12 +60,14 @@ const Recipe = ({
 }
 
 Recipe.propTypes = {
-  recipe: PropTypes.shape({}).isRequired,
+  recipe: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
   getRecipe: PropTypes.func.isRequired,
 };
 
 const mapStateToProp = state => ({
-  recipe: state.recipe,
+  recipe: state.recipes.recipe,
+  loading: state.recipes.loading,
 });
 
 export default connect(mapStateToProp, { getRecipe })(Recipe);

@@ -1,52 +1,56 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getRecipes, changeFilter } from '../redux/actions';
+import { getRecipes, changeCategories } from '../redux/actions';
 import Recipe from '../components/Recipe';
 import CategoryFilter from '../components/CategoryFilter';
+import { Link } from 'react-router-dom';
+
+import { FilterWrap, RecipeWrap }  from '../styles/RecipeListStyle';
+// import RecipeWrap from '../styles/RecipeListStyle';
+import { GET_RECIPES } from '../constants/actionTypes';
 
 
 const RecipeList = ({
-    getRecipes, recipes, changeFilter, filter
+    getRecipes, recipes, changeCategories,
 }) => {
     useEffect(() => {
         getRecipes();
     }, [getRecipes]);
 
-    const handleFilterChange = e => {
-        const { value } = e.target;
-        changeFilter(value);
-    };
 
-    const FilteredRecipes = () => (filter = 'All' ? recipes : recipes.filter(recipe => {
-        const recipeTypes = recipe.types;
+    const handleFilterChange = value => ( value === 'All' ?
+    getRecipes() : changeCategories(value));
 
-        for (let i = 0; i < recipeTypes.length; i++) {
-            if (recipeTypes[i].type.name === filter) return true;
-        }
-        return false;
-    }));
 
-    return recipes === null ? <h1>Loading......</h1> : (
-        <div>
-            <CategoryFilter handleChange={handleFilterChange} />
-            {FilteredRecipes().map(recipe => (
-               <Recipe key={recipe.idMeal} recipe={recipe.strMeal} /> 
-            ))}
-        </div>
+    return recipes.length === 0 ? <h1>Loading......</h1> : (
+        <FilterWrap>
+            Filter by Catorgory<CategoryFilter handleChange={handleFilterChange()} />
+
+            <RecipeWrap>
+              { recipes.map(recipe => (
+                <Link key={recipe.idMeal} to={{pathname: `/recipe/${recipe.idMeal}`, state: recipe }}>
+                  <Recipe key={recipe.idMeal} recipe={recipe} />
+                </Link>
+              ))}
+            </RecipeWrap>
+        </FilterWrap>
     );
 };
 
 RecipeList.propTypes = {
     recipes: PropTypes.array.isRequired,
     getRecipes: PropTypes.func.isRequired,
-    filter: PropTypes.string.isRequired,
-    changeFilter: PropTypes.func.isRequired
+    changeCategories: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
     recipes: state.recipe.recipes,
-    filter: state.filter
 });
 
-export default connect(mapStateToProps, {getRecipes, changeFilter})(RecipeList);
+const mapDispatchToProps = dispatch => ({
+  getRecipes: () => dispatch(getRecipes()),
+  changeCategories: category => dispatch(changeCategories(category)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList);

@@ -1,4 +1,4 @@
-import { GET_RECIPES, GET_RECIPE } from '../../constants/actionTypes';
+import { GET_RECIPES, GET_RECIPE, CHANGE_FILTER } from '../../constants/actionTypes';
 
 const initialState = {
   recipes: [],
@@ -18,6 +18,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         recipe: action.payload,
+        loading: false,
+      };
+    case CHANGE_FILTER:
+      return {
+        ...state,
+        recipes: action.payload.data.meals,
         loading: false,
       };
     default:
