@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getRecipes, changeFilter } from '../redux/actions';
+import Recipe from '../components/Recipe';
+import CategoryFilter from '../components/CategoryFilter';
 
 
 const RecipeList = ({
