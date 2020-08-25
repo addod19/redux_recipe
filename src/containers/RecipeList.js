@@ -11,7 +11,7 @@ const RecipeList = ({
 }) => {
     useEffect(() => {
         getRecipes();
-    }, []);
+    }, [getRecipes]);
 
     const handleFilterChange = e => {
         const { value } = e.target;
@@ -31,7 +31,7 @@ const RecipeList = ({
         <div>
             <CategoryFilter handleChange={handleFilterChange} />
             {FilteredRecipes().map(recipe => (
-               <Recipe key={recipe.id} recipe={recipe} /> 
+               <Recipe key={recipe.idMeal} recipe={recipe.strMeal} /> 
             ))}
         </div>
     );
