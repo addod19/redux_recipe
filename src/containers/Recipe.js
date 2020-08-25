@@ -18,7 +18,7 @@ const Recipe = ({
     <div className="row">
       <div className="col-md-6">
         <h3>Recipe</h3>
-        {/* <img src={} alt="" /> */}
+        <img src={recipe.strMealThumb} alt="" />
       </div>
       <div className="col-md-6">
         <h2>Ingredients</h2>
