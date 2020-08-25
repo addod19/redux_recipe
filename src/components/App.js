@@ -1,10 +1,23 @@
 import React from 'react';
+import { BrowseRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-     <h1>hellllo</h1>
-    </div>
+    <Router>
+      <div className="container">
+        <nav>
+          <Link to="/">
+            <h1>Recipes</h1>
+          </Link>
+        </nav>
+        <Switch>
+          <Route exact path="/" component={RecipeList} />
+          <Route exact path="/:id" component={Recipe} />
+        </Switch>
+
+      </div>
+    </Router>
   );
 }
 
