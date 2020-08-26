@@ -16,7 +16,7 @@ describe('Recipe Component', () => {
         recipe: {
           idMeal: 52942,
           strMeal: 'Roast fennel and aubergine paella',
-          strMealThumb: '"https://www.themealdb.com/images/media/meals/1520081754.jpg"',
+          strMealThumb: 'https://www.themealdb.com/images/media/meals/1520081754.jpg',
         },
       };
       recipe = shallow(<Recipe {...props} />);
