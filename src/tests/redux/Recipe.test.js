@@ -11,5 +11,4 @@ describe('Recipe Reducer', () => {
     const falseState = recipe('meals', { loading: false, recipe: {}, recipes: [] });
     expect(newState).not.toBe(falseState);
   });
-
 });
