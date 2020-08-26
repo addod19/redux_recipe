@@ -83,8 +83,8 @@ const Recipe = ({
 
 Recipe.propTypes = {
   recipe: PropTypes.instanceOf(Object).isRequired,
-  location: PropTypes.instanceOf(Object).isRequired,
   getRecipe: PropTypes.func.isRequired,
+  loading: PropTypes.string.isRequired,
 };
 
 const mapStateToProp = state => ({

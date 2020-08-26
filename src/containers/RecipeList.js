@@ -35,7 +35,7 @@ const RecipeList = ({
 };
 
 RecipeList.propTypes = {
-  recipes: PropTypes.array.isRequired,
+  recipes: PropTypes.shape([]).isRequired,
   getRecipes: PropTypes.func.isRequired,
   changeCategories: PropTypes.func.isRequired,
 };

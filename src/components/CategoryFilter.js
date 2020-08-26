@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import categories from '../constants/types';
 
 const CategoryFilter = ({ handleChange }) => {
-  const [ setDropDownValue] = useState('All');
+  const [setDropDownValue] = useState('All');
   return (
     <div>
       <select

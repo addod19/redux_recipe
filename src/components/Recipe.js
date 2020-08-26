@@ -23,8 +23,9 @@ const Recipe = ({ recipe }) => (
 
 Recipe.propTypes = {
   recipe: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
+    idMeal: PropTypes.number,
+    strMeal: PropTypes.string,
+    strMealThumb: PropTypes.string,
   }).isRequired,
 };
 
