@@ -9,7 +9,7 @@ import CategoryFilter from '../components/CategoryFilter';
 import { FilterWrap, RecipeWrap } from '../styles/RecipeListStyle';
 
 const RecipeList = ({
-  getRecipes, recipes, changeCategories, filter,
+  getRecipes, recipes, changeCategories,
 }) => {
   useEffect(() => {
     getRecipes();
@@ -38,7 +38,6 @@ RecipeList.propTypes = {
   recipes: PropTypes.array.isRequired,
   getRecipes: PropTypes.func.isRequired,
   changeCategories: PropTypes.func.isRequired,
-  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
