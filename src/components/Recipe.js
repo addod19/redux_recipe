@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { MainWrap, ImageWrap, RecipeDetails } from '../styles/RecipeComponent';
 
 const Recipe = ({ recipe }) => (
-  <div className="row">
+  <div className="row showRecipe">
     <div className="fitImg">
       <MainWrap>
         <Link to={`/${recipe.idMeal}`}>

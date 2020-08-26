@@ -13,6 +13,7 @@ const getRecipes = () => dispatch => {
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
       .then(res => {
         categoriesResult.push(...res.data.meals);
+        console.log(res);
       })
       .then(() => {
         dispatch({
