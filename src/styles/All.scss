@@ -1,6 +1,7 @@
 .recipeImg {
-  width: 100%;
+  width: 80%;
   height: 350px;
+  margin: auto;
 }
 .name {
   a {
@@ -9,4 +10,34 @@
 }
 a:hover {
   text-decoration: none;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 578px) {
+  .recipeImg {
+    width: 90%;
+    height: 400px;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 579px) and (max-width: 1024px) {
+  .tablet {
+    width: 100%;
+  }
+
+  .recipeImg {
+    width: 100%;
+    height: 637px;
+    margin-left: 80px;
+  }
+
+  .cot {
+    width: 168%;
+
+    .fitImg {
+      width: 57%;
+    }
+    
+  }
+
 }

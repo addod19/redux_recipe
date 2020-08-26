@@ -1,4 +1,4 @@
 export const GET_RECIPES = 'GET_RECIPES';
 export const GET_RECIPE = 'GET_RECIPE';
 export const CHANGE_CATEGORIES = 'FILTER BY CATEGORY';
-export const CHANGE_FILTER = 'CHANGE_FILTER'
+export const CHANGE_FILTER = 'CHANGE_FILTER';

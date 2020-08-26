@@ -14,5 +14,5 @@ const categories = [
   'Side',
   'Starter',
 ];
-    
+
 export default categories;

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import categories from './allCategories';
-import { CHANGE_FILTER, GET_RECIPES, GET_RECIPE, CHANGE_CATEGORIES } from '../../constants/actionTypes';
+import {
+  CHANGE_FILTER, GET_RECIPES, GET_RECIPE, CHANGE_CATEGORIES,
+} from '../../constants/actionTypes';
 
 const getRecipes = () => dispatch => {
   const categoriesResult = [];
@@ -10,9 +12,7 @@ const getRecipes = () => dispatch => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
       .then(res => {
-        console.log(res);
         categoriesResult.push(...res.data.meals);
-        console.log(res);
       })
       .then(() => {
         dispatch({
@@ -34,7 +34,6 @@ const getRecipe = id => dispatch => {
     .then(error => error);
 };
 
-
 const changeCategories = category => async dispatch => {
   const data = await axios.get(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
@@ -50,7 +49,6 @@ const changeFIlter = filter => ({
   filter,
 });
 
-
 export {
-  getRecipes, getRecipe, changeCategories, changeFIlter
+  getRecipes, getRecipe, changeCategories, changeFIlter,
 };

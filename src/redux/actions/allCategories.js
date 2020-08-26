@@ -14,5 +14,5 @@ const categories = [
   'Breakfast',
   'Goat',
 ];
-  
+
 export default categories;

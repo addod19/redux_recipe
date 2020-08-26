@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getRecipe } from '../redux/actions';
 
-
-
 const Recipe = ({
-  recipe, getRecipe, loading
+  recipe, getRecipe, loading,
 }) => {
   useEffect(() => {
-      getRecipe();
+    getRecipe();
   }, [getRecipe, loading]);
 
   return recipe && loading === null ? <h1>loading....</h1> : (
@@ -23,28 +21,52 @@ const Recipe = ({
         <h2>Ingredients</h2>
         <ul className="ingredients">
           <li>
-            { recipe.strIngredient1 } : { recipe.strMeasure1 }
+            { recipe.strIngredient1 }
+            {' '}
+            :
+            { recipe.strMeasure1 }
           </li>
           <li>
-            { recipe.strIngredient2 } : { recipe.strMeasure2 }
+            { recipe.strIngredient2 }
+            {' '}
+            :
+            { recipe.strMeasure2 }
           </li>
           <li>
-            { recipe.strIngredient3 } : { recipe.strMeasure3 }
+            { recipe.strIngredient3 }
+            {' '}
+            :
+            { recipe.strMeasure3 }
           </li>
           <li>
-            { recipe.strIngredient4 } : { recipe.strMeasure4 }
+            { recipe.strIngredient4 }
+            {' '}
+            :
+            { recipe.strMeasure4 }
           </li>
           <li>
-            { recipe.strIngredient5 } : { recipe.strMeasure5 }
+            { recipe.strIngredient5 }
+            {' '}
+            :
+            { recipe.strMeasure5 }
           </li>
           <li>
-            { recipe.strIngredient6 } : { recipe.strMeasure6 }
+            { recipe.strIngredient6 }
+            {' '}
+            :
+            { recipe.strMeasure6 }
           </li>
           <li>
-            { recipe.strIngredient7 } : { recipe.strMeasure7 }
+            { recipe.strIngredient7 }
+            {' '}
+            :
+            { recipe.strMeasure7 }
           </li>
           <li>
-            { recipe.strIngredient8 } : { recipe.strMeasure8 }
+            { recipe.strIngredient8 }
+            {' '}
+            :
+            { recipe.strMeasure8 }
           </li>
         </ul>
         <h2>Instructions</h2>
@@ -55,9 +77,9 @@ const Recipe = ({
       <Link to="/" className="text-center">
         <button type="button">Back to Recipe</button>
       </Link>
-    </div>  
-    );
-}
+    </div>
+  );
+};
 
 Recipe.propTypes = {
   recipe: PropTypes.instanceOf(Object).isRequired,
