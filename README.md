@@ -29,6 +29,9 @@ In this project, I built a fast and dynamic catalogue of recipes using react/red
 - ``` git push heroku milestone1:master ```
 - ` heroku open `
 
+## Screenshot
+![screenshot](shot.png)
+
 ## Live Demo
 
 [Live Demo Link](https://redux-recipe.herokuapp.com/)

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { MainWrap, ImageWrap, RecipeDetails } from '../styles/RecipeComponent';
 
-const Recipe = ({ recipe }) => (
+const Recipe = ({ recipe }) => (recipe === undefined ? <h1>Loading......</h1> : (
   <div className="row showRecipe">
     <div className="fitImg">
       <MainWrap>
@@ -19,7 +19,7 @@ const Recipe = ({ recipe }) => (
       </MainWrap>
     </div>
   </div>
-);
+));
 
 Recipe.propTypes = {
   recipe: PropTypes.shape({

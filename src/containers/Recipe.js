@@ -10,12 +10,11 @@ const Recipe = ({
   useEffect(() => {
     getRecipe();
   }, [getRecipe, loading]);
-
   return recipe && loading === null ? <h1>loading....</h1> : (
     <div className="row">
       <div className="col-sm-12 col-md-6 col-lg-4">
-        <h3>{ recipe }</h3>
-        <img src={recipe.strMealThumb} alt="" />
+        <h3>{ recipe.strMeal }</h3>
+        <img src={recipe.strMealThumb ? recipe.strMealThumb : 'undefined'} alt="img" />
       </div>
       <div className="col-sm-12 col-md-6 col-lg-4">
         <h2>Ingredients</h2>

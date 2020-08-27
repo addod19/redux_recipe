@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/types';
 
-const CategoryFilter = ({ handleChange }) => {
+const CategoryFilter = ({ handleFilterChange }) => {
   const [setDropDownValue] = useState('All');
   return (
     <div>
@@ -11,7 +11,7 @@ const CategoryFilter = ({ handleChange }) => {
         handleChange={e => {
           const val = e.target.value;
           setDropDownValue(val);
-          handleChange(val);
+          handleFilterChange(val);
         }}
       >
         <option value="All">All</option>
@@ -26,7 +26,7 @@ const CategoryFilter = ({ handleChange }) => {
 };
 
 CategoryFilter.propTypes = {
-  handleChange: PropTypes.func.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default CategoryFilter;
