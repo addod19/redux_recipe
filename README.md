@@ -36,7 +36,7 @@ In this project, I built a fast and dynamic catalogue of recipes using react/red
 
 [Live Demo Link](https://redux-recipe.herokuapp.com/)
 
-## ideo Presentation
+## Video Presentation
 
 [Presentation](https://www.loom.com/share/e143ea99b74a466b815796488614431e)
 
