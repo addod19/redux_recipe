@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import categories from '../constants/types';
 
 const CategoryFilter = ({ handleFilterChange }) => {
-  const [setDropDownValue] = useState('All');
+  // eslint-disable-next-line no-unused-vars
+  const [ dropDownValue, setDropDownValue ] = useState('All');
   return (
     <div>
       <select
-        name="type"
-        handleChange={e => {
+        name="category"
+        onChange={e => {
           const val = e.target.value;
           setDropDownValue(val);
           handleFilterChange(val);
         }}
       >
-        <option value="All">All</option>
         { categories.map(category => (
           <option key={category} value={category}>
             { category }

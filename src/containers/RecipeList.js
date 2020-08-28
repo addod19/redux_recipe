@@ -21,7 +21,7 @@ const RecipeList = ({
   return recipes.length === 0 ? <h1>Loading......</h1> : (
     <FilterWrap>
       Filter by Catorgory
-      <CategoryFilter handleChange={handleFilterChange()} />
+      <CategoryFilter onChange={ handleFilterChange } />
 
       <RecipeWrap>
         { recipes.map(recipe => (

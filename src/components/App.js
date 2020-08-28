@@ -11,13 +11,13 @@ const App = () => (
     <div className="container-fluid">
       <StyledApp>
         <StyledNav>
-          <Link to="/">
+          <Link exact='true' to="/">
             <h1 className="cata">Catalogue of Recipes</h1>
           </Link>
         </StyledNav>
         <Switch>
           <Route exact path="/" component={RecipeList} />
-          <Route exact path="/:id" component={Recipe} />
+          <Route exact path="/recipe/:id" component={Recipe} />
         </Switch>
       </StyledApp>
     </div>
