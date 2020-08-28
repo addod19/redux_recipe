@@ -9,6 +9,7 @@ import { GET_RECIPE } from '../redux/actions';
 
 const Recipe = ( { getRecipe, recipe, location } ) => {
   const result = location.state;
+  console.log(result);
   useEffect( () => {
     getRecipe(result.idMeal);
   }, [getRecipe, result.idMeal]);
