@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/types';
 
-const CategoryFilter = ({ handleFilterChange }) => {
+const CategoryFilter = ({ handleChange }) => {
   // eslint-disable-next-line no-unused-vars
   const [ dropDownValue, setDropDownValue ] = useState('All');
   return (
@@ -12,7 +12,7 @@ const CategoryFilter = ({ handleFilterChange }) => {
         onChange={e => {
           const val = e.target.value;
           setDropDownValue(val);
-          handleFilterChange(val);
+          handleChange(val);
         }}
       >
         { categories.map(category => (
@@ -26,7 +26,7 @@ const CategoryFilter = ({ handleFilterChange }) => {
 };
 
 CategoryFilter.propTypes = {
-  handleFilterChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default CategoryFilter;

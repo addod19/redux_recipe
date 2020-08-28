@@ -17,7 +17,7 @@ const App = () => (
         </StyledNav>
         <Switch>
           <Route exact path="/" component={RecipeList} />
-          <Route exact path="/recipe/:id" component={Recipe} />
+          <Route exact path="/:id" component={Recipe} />
         </Switch>
       </StyledApp>
     </div>

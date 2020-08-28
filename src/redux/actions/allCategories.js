@@ -1,4 +1,5 @@
 const categories = [
+  // 'All',
   'Beef',
   'Chicken',
   'Dessert',
