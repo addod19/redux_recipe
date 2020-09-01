@@ -11,7 +11,7 @@ const App = () => (
     <div className="container-fluid">
       <StyledApp>
         <StyledNav>
-          <Link exact='true' to="/">
+          <Link exact="true" to="/">
             <h1 className="cata">Catalogue of Recipes</h1>
           </Link>
         </StyledNav>

@@ -4,7 +4,7 @@ import categories from '../constants/types';
 
 const CategoryFilter = ({ handleChange }) => {
   // eslint-disable-next-line no-unused-vars
-  const [ dropDownValue, setDropDownValue ] = useState('All');
+  const [dropDownValue, setDropDownValue] = useState('All');
   return (
     <div>
       <select

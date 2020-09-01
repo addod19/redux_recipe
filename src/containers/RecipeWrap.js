@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { MainWrap, ImageWrap, RecipeDetails } from '../styles/RecipeComponent';
+
 class ReWrap extends Component {
   render() {
     const { recipe } = this.props;
     return (
-      <div className="">
-        <div className="card card-body text-center h-100 mx-auto">
-          <img
-            className="w-100 mb-2"
-            src={recipe.strMealThumb}
-            alt="Recipe Cover"
-            title="click on image to view details"
-          />
-          <h5 className="card-title">{recipe.strMeal}</h5>
+      <div className="showRecipe">
+        <div className="text-center">
+          <MainWrap>
+            <ImageWrap>
+              <img
+                className="w-100 mb-2 recipeImg"
+                src={recipe.strMealThumb}
+                alt="Recipe Cover"
+                title="click on image to view details"
+              />
+            </ImageWrap>
+            <RecipeDetails>
+              <h5 className="card-title name">
+                {recipe.strMeal}
+              </h5>
+            </RecipeDetails>  
+          </MainWrap>
         </div>
       </div>
     );
@@ -21,7 +31,11 @@ class ReWrap extends Component {
 }
 
 ReWrap.propTypes = {
-  recipe: PropTypes.instanceOf(Object).isRequired,
+  recipe: PropTypes.shape({
+    idMeal: PropTypes.number,
+    strMeal: PropTypes.string,
+    strMealThumb: PropTypes.string,
+  }).isRequired,
 };
 
 export default ReWrap;

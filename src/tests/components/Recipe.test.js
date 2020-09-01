@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import helper from '../__mocks__';
-import Recipe from '../../components/Recipe';
+import Recipe from '../../containers/RecipeWrap';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import categories from './allCategories';
-// import {
-//   CHANGE_FILTER, GET_RECIPES, GET_RECIPE, CHANGE_CATEGORIES,
-// } from '../../constants/actionTypes';
+import {
+  CHANGE_FILTER, GET_RECIPES, GET_RECIPE, CHANGE_CATEGORIES,
+} from '../../constants/actionTypes';
 
-const GET_RECIPES = () => dispatch => {
+const GETRECIPES = () => dispatch => {
   const categoriesResult = [];
 
   // eslint-disable-next-line
@@ -16,7 +16,7 @@ const GET_RECIPES = () => dispatch => {
       })
       .then(() => {
         dispatch({
-          type: 'GET RECIPES',
+          type: GET_RECIPES,
           payload: categoriesResult,
         });
       })
@@ -24,31 +24,32 @@ const GET_RECIPES = () => dispatch => {
   });
 };
 
-const GET_RECIPE = id => dispatch => {
-  axios
+const GETRECIPE = id => async dispatch => {
+  await axios
     .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(response => dispatch({
-      type: 'GET RECIPE',
+      type: GET_RECIPE,
       payload: response.data.meals[0],
     }))
     .then(error => error);
 };
 
-const FILTER_RECIPES = category => async dispatch => {
+const FILTERRECIPES = category => async dispatch => {
   const data = await axios.get(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
   );
+  // console.log(data);
   dispatch({
-    type: 'CHANGE CATEGORIES',
+    type: CHANGE_CATEGORIES,
     payload: data,
   });
 };
 
-const changeFIlter = filter => ({
-  type: 'CHANGE FILTER',
+const changeFilter = filter => ({
+  type: CHANGE_FILTER,
   filter,
 });
 
 export {
-  GET_RECIPES, GET_RECIPE, FILTER_RECIPES, changeFIlter,
+  GETRECIPES, GETRECIPE, FILTERRECIPES, changeFilter,
 };
