@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { GETRECIPE } from '../redux/actions';
 
-const Recipe = ({ getRecipe, location }) => {
+const Recipe = ({ getRecipe, location, recipe }) => {
   const result = location.state;
   useEffect(() => {
     getRecipe(result.idMeal);
@@ -27,44 +27,44 @@ const Recipe = ({ getRecipe, location }) => {
           <h2>Ingredients</h2>
           <ul className="ingredients">
             <li>
-              {result.strIngredient1}
+              {recipe.strIngredient1}
               {' '}
               :
-              {result.strMeasure1}
+              {recipe.strMeasure1}
             </li>
             <li>
-              {result.strIngredient2}
+              {recipe.strIngredient2}
               {' '}
               :
-              {result.strMeasure2}
+              {recipe.strMeasure2}
             </li>
             <li>
-              {result.strIngredient3}
+              {recipe.strIngredient3}
               {' '}
               :
-              {result.strMeasure3}
+              {recipe.strMeasure3}
             </li>
             <li>
-              {result.strIngredient4}
+              {recipe.strIngredient4}
               {' '}
               :
-              {result.strMeasure4}
+              {recipe.strMeasure4}
             </li>
             <li>
-              {result.strIngredient5}
+              {recipe.strIngredient5}
               {' '}
               :
-              {result.strMeasure5}
+              {recipe.strMeasure5}
             </li>
             <li>
-              {result.strIngredient6}
+              {recipe.strIngredient6}
               {' '}
               :
-              {result.strMeasure6}
+              {recipe.strMeasure6}
             </li>
           </ul>
           <h2 className="instructions">Instructions</h2>
-          <p className="instruction text-justify">{result.strInstructions}</p>
+          <p className="instruction text-justify">{recipe.strInstructions}</p>
         </div>
       </div>
     </div>
@@ -72,11 +72,12 @@ const Recipe = ({ getRecipe, location }) => {
 };
 
 Recipe.propTypes = {
+  recipe: PropTypes.instanceOf(Object),
   getRecipe: PropTypes.func.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
 };
 
-const mapStateToProp = state => ({
+const mapStateToProps = state => ({
   recipe: state.recipe.recipe,
 });
 
@@ -84,4 +85,4 @@ const mapDispatchToProps = dispatch => ({
   getRecipe: id => dispatch(GETRECIPE(id)),
 });
 
-export default connect(mapStateToProp, mapDispatchToProps)(Recipe);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);
