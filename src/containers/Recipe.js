@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { GETRECIPE } from '../redux/actions';
 
-const Recipe = ({ getRecipe, recipe, location }) => {
+const Recipe = ({ getRecipe, location }) => {
   const result = location.state;
   useEffect(() => {
     getRecipe(result.idMeal);
@@ -72,7 +72,6 @@ const Recipe = ({ getRecipe, recipe, location }) => {
 };
 
 Recipe.propTypes = {
-  recipe: PropTypes.instanceOf(Object),
   getRecipe: PropTypes.func.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
 };

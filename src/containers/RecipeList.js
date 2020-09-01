@@ -10,7 +10,7 @@ import CategoryFilter from '../components/CategoryFilter';
 import { FilterWrap, RecipeWrap } from '../styles/RecipeListStyle';
 
 const RecipeList = ({
-  getRecipes, recipes, changeCategories, changeFilter
+  getRecipes, recipes, changeCategories, changeFilter,
 }) => {
   useEffect(() => {
     getRecipes();
@@ -21,9 +21,9 @@ const RecipeList = ({
       getRecipes();
     } else {
       changeFilter(value);
-      changeCategories(value)
+      changeCategories(value);
     }
-  }
+  };
 
   return recipes.length === 0 ? <h1>Loading......</h1> : (
     <FilterWrap>

@@ -38,7 +38,6 @@ const FILTERRECIPES = category => async dispatch => {
   const data = await axios.get(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`,
   );
-  // console.log(data);
   dispatch({
     type: CHANGE_CATEGORIES,
     payload: data,
