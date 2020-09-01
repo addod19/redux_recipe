@@ -30,36 +30,42 @@ const Recipe = ({ getRecipe, location, recipe }) => {
               {recipe.strIngredient1}
               {' '}
               :
+              {' '}
               {recipe.strMeasure1}
             </li>
             <li>
               {recipe.strIngredient2}
               {' '}
               :
+              {' '}
               {recipe.strMeasure2}
             </li>
             <li>
               {recipe.strIngredient3}
               {' '}
               :
+              {' '}
               {recipe.strMeasure3}
             </li>
             <li>
               {recipe.strIngredient4}
               {' '}
               :
+              {' '}
               {recipe.strMeasure4}
             </li>
             <li>
               {recipe.strIngredient5}
               {' '}
               :
+              {' '}
               {recipe.strMeasure5}
             </li>
             <li>
               {recipe.strIngredient6}
               {' '}
               :
+              {' '}
               {recipe.strMeasure6}
             </li>
           </ul>
@@ -72,7 +78,7 @@ const Recipe = ({ getRecipe, location, recipe }) => {
 };
 
 Recipe.propTypes = {
-  recipe: PropTypes.instanceOf(Object),
+  recipe: PropTypes.instanceOf(Object).isRequired,
   getRecipe: PropTypes.func.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
 };
