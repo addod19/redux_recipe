@@ -8,6 +8,10 @@ const ImageWrap = styled.div`
   height: 20em;
   width: 100%;
   margin-top: 2px;
+  .recipeImage {
+    height: 400px;
+    border: 1px solid red;
+  }
 
   @media only screen and (min-width: 200px) and (max-width: 577px) {
     height: 400px;
