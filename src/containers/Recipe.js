@@ -17,12 +17,12 @@ const Recipe = ({ getRecipe, location, recipe }) => {
       <h1>Loading.......</h1>
     </div>
   ) : (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <img src={result.strMealThumb} alt="" className="recipeImg" />
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 imgW">
+          <img src={result.strMealThumb} alt="" className="recipeImg1" />
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 detailsW">
           <h1 className="mb-4 text-center">{result.strMeal}</h1>
           <h2>Ingredients</h2>
           <ul className="ingredients">
