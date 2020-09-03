@@ -40,6 +40,7 @@ In this project, I built a fast and dynamic catalogue of recipes using react/red
 
 [Presentation](https://www.loom.com/share/e143ea99b74a466b815796488614431e)
 
+[Presentation 2](https://www.loom.com/share/0b3b3d51f2fd434eb81ac143eb2befa1)
 
 ## Getting Started
 
